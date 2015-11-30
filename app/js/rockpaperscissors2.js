@@ -36,11 +36,15 @@ function getComputerMove(move) {
     return move || randomPlay();
 }
 
+// var playerMove = getPlayerMove();
+// var computerMove = getComputerMove();
+
 function getWinner(playerMove, computerMove) {
     // This function should either give us back 'player', 'computer', or 'tie'.
     // The rules of the game are that rock beats scissors, scissors beats paper, and paper beats rock.
     // Assume that the only possible input values we can get are 'rock', 'paper', and 'scissors'.
     var winner;
+    console.log("Player chose " + playerMove + " while Computer chose " + computerMove);
     if (playerMove === computerMove) {
         winner = "tie";
     } else if (playerMove === "rock") {
@@ -77,7 +81,6 @@ function playToFive() {
   //  console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
   /* YOUR CODE HERE */
   while (playerWins < 5 && computerWins < 5) {
-    console.log("Player chose " + playerMove + " while Computer chose " + computerMove);
     var roundWinner = getWinner(getPlayerMove(), getComputerMove());
     if (roundWinner === "player") {
       playerWins += 1;
@@ -88,7 +91,8 @@ function playToFive() {
     } else {
       console.log("It's a tie!");
     } console.log("Player has a score of " + playerWins + "," + " Computer has a score of " + computerWins + ".");
-  } if (playerWins === 5) {
+  } 
+  if (playerWins === 5) {
     console.log("Player wins, 5 games to " + computerWins + ".");
   } else {
     console.log("Computer wins, 5 games to " + playerWins + ".");
